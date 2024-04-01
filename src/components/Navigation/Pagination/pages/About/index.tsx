@@ -1,8 +1,8 @@
 import React from 'react'
 import { Container, Props } from './styles'
-import { Settings } from '../../../../Settings'
+import { Settings } from '../../../../../Settings'
 
-import { SvgIconLogo } from '../../../SvgIcon'
+import { SvgIconLogo } from '../../../../UIElements/Icons/SvgIcon'
 
 const AboutPage: React.FC<Props> = ({pageName, visible})=>{
     const svgIconLogo = <SvgIconLogo size='120px' />

@@ -3,14 +3,14 @@ import Switch from 'react-switch'
 import { ThemeContext } from 'styled-components'
 import { Props, Content } from './styles'
 import { shade } from 'polished'
-import IconRoundedButton from '../IconRoundedButton'
+import IconRoundedButton from '../../UIElements/Buttons/IconRoundedButton'
 import { appWindow } from '@tauri-apps/api/window'
 import { type } from '@tauri-apps/api/os';
 const osType = await type()
 
 // Themes
-import light from '../../styles/themes/light'
-import dark from '../../styles/themes/dark'
+import light from '../../../styles/themes/light'
+import dark from '../../../styles/themes/dark'
 
 // SVG Icons
 import {
@@ -19,7 +19,7 @@ import {
     SvgIconMinimize, 
     SvgIconRestore,
     SvgIconNotification
-} from '../SvgIcon'
+} from '../../UIElements/Icons/SvgIcon'
 
 
 const Header: React.FC<Props> = ({

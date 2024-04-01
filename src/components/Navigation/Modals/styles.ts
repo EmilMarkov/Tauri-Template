@@ -1,10 +1,8 @@
 import styled, { DefaultTheme } from 'styled-components';
-import { Entry } from '../Props/styled';
 
 export interface Props {
   setModal?: string | null;
   closeModal: () => void;
-  data: Entry[] | null;
 }
 
 export const modelStyles = (theme: DefaultTheme) => {

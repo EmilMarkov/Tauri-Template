@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import Modal from 'react-modal';
 import { Props } from './styles';
-import IconRoundedButton from '../IconRoundedButton';
+import IconRoundedButton from '../../UIElements/Buttons/IconRoundedButton';
 import { ThemeContext } from 'styled-components'
 
 import {
     SvgIconClose
-} from '../SvgIcon'
+} from '../../UIElements/Icons/SvgIcon'
 
 import {
     modelStyles,

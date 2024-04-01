@@ -5,8 +5,8 @@ import {
     SvgIconFolder,
     SvgIconInfo,
     SvgIconSettings
-} from '../SvgIcon'
-import { Settings } from '../../Settings'
+} from '../../UIElements/Icons/SvgIcon'
+import { Settings } from '../../../Settings'
 
 const LeftMenuBar: React.FC<Props> = ({
     setPageName,

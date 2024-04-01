@@ -1,6 +1,6 @@
 import React from 'react'
 import { ClearText, Container, Input, InputIcon, Props } from './styled'
-import { SvgIconClose } from '../SvgIcon'
+import { SvgIconClose } from '../../Icons/SvgIcon'
 
 const InputText: React.FC<Props> = React.forwardRef((props ,ref)=> {
     // Clear InputText

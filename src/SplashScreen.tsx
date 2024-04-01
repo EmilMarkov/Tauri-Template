@@ -6,7 +6,7 @@ import usePersistedState from './utils/userPersistedState'
 import { invoke } from '@tauri-apps/api';
 import { Settings } from './Settings';
 import { appWindow } from '@tauri-apps/api/window';
-import CircularProgressBar from './components/CircularProgressBar';
+import CircularProgressBar from './components/Misc/CircularProgressBar';
 import { type } from '@tauri-apps/api/os';
 import light from './styles/themes/light'
 const osType = await type()
