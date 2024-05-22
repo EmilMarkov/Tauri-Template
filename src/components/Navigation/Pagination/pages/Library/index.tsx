@@ -12,9 +12,8 @@ import {
     Container,
     Props,
 } from './styles';
-import TextRoundedButton from '@/components/UIElements/Buttons/TextRoundedButton';
 
-const HomePage: React.FC<Props> = ({ pageName, visible }) => {
+const LibraryPage: React.FC<Props> = ({ pageName, visible }) => {
     return (
         <Container className={`app-container-column ${visible ? '' : 'hide-page'}`}>
             <section className="app-section flex-1">
@@ -26,4 +25,4 @@ const HomePage: React.FC<Props> = ({ pageName, visible }) => {
     );
 };
 
-export default HomePage;
+export default LibraryPage;

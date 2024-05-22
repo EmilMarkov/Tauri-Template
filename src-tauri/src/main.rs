@@ -6,6 +6,8 @@ use settimeout::set_timeout;
 use std::time::Duration;
 
 mod app_modules;
+use app_modules::file;
+
 // use app_modules::module_name::{item};
 
 #[tauri::command]
@@ -21,9 +23,19 @@ async fn close_splashscreen(window: tauri::Window) {
     window.get_window("main").unwrap().show().unwrap();
 }
 fn main() {
-    tauri::Builder::default()
+    // This should be called as early in the execution of the app as possible
+    #[cfg(debug_assertions)] // only enable instrumentation in development builds
+    let devtools = devtools::init();
+
+    let builder = tauri::Builder::default();
+
+    #[cfg(debug_assertions)]
+    let builder = builder.plugin(devtools);
+
+    builder
         .invoke_handler(tauri::generate_handler![
-            close_splashscreen
+            close_splashscreen,
+            file::fetch_file
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

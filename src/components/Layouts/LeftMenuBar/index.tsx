@@ -2,11 +2,13 @@ import React, { useContext, useRef, useState } from 'react'
 import { ThemeContext } from 'styled-components'
 import { Content, Props } from './styles'
 import { 
-    SvgIconFolder,
+    SvgIconHome,
+    SvgIconCatalog,
+    SvgIconLibrary,
+    SvgIconSettings,
     SvgIconInfo,
-    SvgIconSettings
-} from '../../UIElements/Icons/SvgIcon'
-import { Settings } from '../../../Settings'
+} from '@components/UIElements/Icons/SvgIcon'
+import { Settings } from '@/Settings'
 
 const LeftMenuBar: React.FC<Props> = ({
     setPageName,
@@ -16,7 +18,11 @@ const LeftMenuBar: React.FC<Props> = ({
     defaultPage,
     buttonsIconSize
 })=>{
-    const svgIconMenuClosed = <SvgIconFolder size={'20'} />
+    const svgIconHome     = <SvgIconHome size={'20'} />
+    const svgIconCatalog  = <SvgIconCatalog size={'20'} />
+    const svgIconLibrary  = <SvgIconLibrary size={'20'} />
+    const svgIconSettings = <SvgIconSettings size={buttonsIconSize ? buttonsIconSize : '24'} />
+    const svgIconAbout    = <SvgIconInfo size={buttonsIconSize ? buttonsIconSize : '24'} />
 
     const menu = useRef<HTMLElement>(null)
     const logoImg = useRef<HTMLImageElement>(null)
@@ -56,21 +62,33 @@ const LeftMenuBar: React.FC<Props> = ({
                 <ul className='flex-1'>
                     <li>
                         <a className={defaultPage == 'about' ? 'menu-active' : ''}  is-ctivated='true' href="#" onClick={changePage} title='Home' page-name='home'>
-                            {svgIconMenuClosed}
+                            {svgIconHome}
                             <span>Home</span>
                         </a> 
                     </li>
                     <li>
-                        <a className={defaultPage == 'about' ? 'menu-active' : ''} href="#" onClick={changePage} is-ctivated='true' title='Settings' page-name='settings'>
-                            <SvgIconSettings size={buttonsIconSize ? buttonsIconSize : '24'} />
-                            <span>Settings</span>
+                        <a className={defaultPage == 'about' ? 'menu-active' : ''} href="#" onClick={changePage} is-ctivated='true' title='Catalog' page-name='catalog'>
+                            {svgIconCatalog}
+                            <span>Catalog</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a className={defaultPage == 'about' ? 'menu-active' : ''} href="#" onClick={changePage} is-ctivated='true' title='Library' page-name='library'>
+                            {svgIconLibrary}
+                            <span>Library</span>
                         </a>
                     </li>
                 </ul>
                 <ul className='bottom-menus'>
                     <li>
+                        <a className={defaultPage == 'about' ? 'menu-active' : ''} href="#" onClick={changePage} is-ctivated='true' title='Settings' page-name='settings'>
+                            {svgIconSettings}
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
                         <a className={defaultPage == 'about' ? 'menu-active' : ''} href="#" onClick={changePage} is-ctivated='true' title='About' page-name='about'>
-                            <SvgIconInfo size={buttonsIconSize ? buttonsIconSize : '24'} />
+                            {svgIconAbout}
                             <span>About</span>
                         </a>
                     </li>

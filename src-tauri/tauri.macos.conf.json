@@ -1,6 +1,6 @@
 {
   "tauri": {
-    "windows": [
+    "windows": [      
       {
         "title": "Loading...",
         "width": 280,
@@ -25,7 +25,8 @@
         "center": true,
         "decorations": true,
         "titleBarStyle": "Overlay",
-        "hiddenTitle": true
+        "hiddenTitle": true,
+        "url": "../src/pages/index.html"
       }      
     ],
     "macOSPrivateApi": true

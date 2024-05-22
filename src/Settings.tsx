@@ -1,10 +1,10 @@
 // Import Assets
-import Logo from './assets/app_logo.png'
-import LogoDark from './assets/app_logo_dark.png'
-import { SvgIconLogo } from './components/UIElements/Icons/SvgIcon'
+import Logo from '@assets/app_logo.png'
+import LogoDark from '@assets/app_logo_dark.png'
+import { SvgIconLogo } from '@components/UIElements/Icons/SvgIcon'
 
 // Default Theme
-import dark from './styles/themes/dark'
+import dark from '@styles/themes/dark'
 
 // App Settings
 export class Settings {

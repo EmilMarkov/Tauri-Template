@@ -1,39 +1,41 @@
-import { defineConfig } from 'vite'
+import { defineConfig, UserConfigExport } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 
-// https://vitejs.dev/config/
-export default defineConfig(async () => ({
-  plugins: [react()],
-
-  // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
-  // prevent vite from obscuring rust errors
-  clearScreen: false,
-  // tauri expects a fixed port, fail if that port is not available
-  server: {
-    port: 1420,
-    strictPort: true,
-  },
-  // to make use of `TAURI_DEBUG` and other env variables
-  // https://tauri.studio/v1/api/config#buildconfig.beforedevcommand
-  envPrefix: ["VITE_", "TAURI_"],
-  build: {
-    // Tauri supports es2021
-    target: "esnext",
-    // don't minify for debug builds
-    minify: !process.env.TAURI_DEBUG ? "esbuild" : false,
-    // produce sourcemaps for debug builds
-    sourcemap: !!process.env.TAURI_DEBUG,
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        splashscreen: resolve(__dirname, 'src/pages/splashscreen.html')
+const config: UserConfigExport = async () => {
+  return {
+    plugins: [react()],
+    clearScreen: false,
+    server: {
+      port: 1420,
+      strictPort: true,
+    },
+    envPrefix: ["VITE_", "TAURI_"],
+    build: {
+      target: "esnext",
+      minify: !process.env.TAURI_DEBUG ? "esbuild" : false,
+      sourcemap: !!process.env.TAURI_DEBUG,
+      rollupOptions: {
+        input: {
+          main: resolve(__dirname, 'src/pages/index.html'),
+          splashscreen: resolve(__dirname, 'src/pages/splashscreen.html')
+        },
       },
     },
-  },
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, './src/fonts/')
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, 'src'),
+        '@assets': resolve(__dirname, 'src/assets'),
+        '@components': resolve(__dirname, 'src/components'),
+        '@pages': resolve(__dirname, 'src/pages'),
+        '@services': resolve(__dirname, 'src/services'),
+        '@store': resolve(__dirname, 'src/store'),
+        '@styles': resolve(__dirname, 'src/styles'),
+        '@fonts': resolve(__dirname, 'src/assets/fonts'),
+        '@utils': resolve(__dirname, 'src/utils')
+      }
     }
   }
-}));
+};
+
+export default defineConfig(config);

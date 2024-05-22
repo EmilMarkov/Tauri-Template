@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import GlobalStyle from './styles/global'
+import GlobalStyle from '@styles/global'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
-import dark from './styles/themes/dark'
-import usePersistedState from './utils/userPersistedState'
+import dark from '@styles/themes/dark'
+import usePersistedState from '@utils/userPersistedState'
 import { invoke } from '@tauri-apps/api';
-import { Settings } from './Settings';
+import { Settings } from '@/Settings';
 import { appWindow } from '@tauri-apps/api/window';
-import CircularProgressBar from './components/Misc/CircularProgressBar';
+import CircularProgressBar from '@components/Misc/CircularProgressBar';
 import { type } from '@tauri-apps/api/os';
-import light from './styles/themes/light'
+import light from '@styles/themes/light'
 const osType = await type()
 
 function SplashScreen() {
